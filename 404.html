@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>الصفحة غير موجودة | نور القلوب</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/images/icon-512.png">
+</head>
+<body>
+
+<header class="header">
+  <input class="nav-toggle" type="checkbox" id="navToggle" aria-hidden="true">
+
+  <div class="container header__inner">
+    <a class="brand" href="index.html" aria-label="نور القلوب">
+      <span class="brand__logo">ن</span>
+      <span class="brand__text">
+        <strong>نور القلوب</strong>
+        <small>منصة توثيق إنساني أخلاقي</small>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="روابط الموقع">
+      <a href="index.html#ethics">الأخلاقيات</a>
+      <a href="pages/archive.html">السجل</a>
+      <a href="index.html#add">أضف شهادة</a>
+      <a href="index.html#support">ادعم</a>
+    </nav>
+
+    <div class="header__actions">
+      <a class="btn btn--ghost" href="pages/archive.html">السجل</a>
+      <label class="burger" for="navToggle" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+
+  <label class="drawer-overlay" for="navToggle" aria-label="إغلاق القائمة"></label>
+
+  <aside class="drawer" aria-label="قائمة الهاتف">
+    <div class="drawer__head">
+      <span class="badge">القائمة</span>
+      <label class="drawer__close" for="navToggle" aria-label="إغلاق">✕</label>
+    </div>
+
+    <a href="index.html" class="drawer__link">الرئيسية</a>
+    <a href="index.html#ethics" class="drawer__link">الأخلاقيات</a>
+    <a href="pages/archive.html" class="drawer__link">السجل</a>
+    <a href="index.html#add" class="drawer__link">أضف شهادة</a>
+    <a href="index.html#support" class="drawer__link">ادعم</a>
+
+    <hr class="hr">
+
+    <a href="legal/privacy.html" class="drawer__link">الخصوصية</a>
+    <a href="legal/terms.html" class="drawer__link">الشروط</a>
+    <a href="legal/disclaimer.html" class="drawer__link">إخلاء المسؤولية</a>
+  </aside>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="card">
+      <h2>الصفحة غير موجودة (404)</h2>
+      <p class="muted">قد يكون الرابط خاطئًا أو تم نقل الصفحة.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+        <a class="btn btn--primary" href="index.html">العودة للرئيسية</a>
+        <a class="btn btn--ghost" href="pages/archive.html">فتح السجل</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <strong>نور القلوب</strong>
+      <p class="muted">سجل الشهادة الصامتة — وقائع بلا تحريض ولا تشهير</p>
+    </div>
+    <div class="footer__links">
+      <a href="legal/privacy.html">الخصوصية</a>
+      <a href="legal/terms.html">الشروط</a>
+      <a href="legal/disclaimer.html">إخلاء المسؤولية</a>
+    </div>
+    <div class="footer__bottom">© <span id="year"></span> نور القلوب</div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
