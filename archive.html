@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>السجل | نور القلوب</title>
+  <meta name="description" content="السجل المحلي للشهادات المحفوظة على هذا الجهاز (خصوصية أولًا).">
+  <link rel="canonical" href="https://nour-al-qoloup.netlify.app/pages/archive.html">
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#070b14">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/icon-512.png">
+  <link rel="apple-touch-icon" href="../assets/images/icon-512.png">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="no-js">
+
+<header class="header">
+  <input class="nav-toggle" type="checkbox" id="navToggle" aria-hidden="true">
+
+  <div class="container header__inner">
+    <a class="brand" href="../index.html" aria-label="نور القلوب">
+      <span class="brand__logo">ن</span>
+      <span class="brand__text">
+        <strong>نور القلوب</strong>
+        <small>منصة توثيق إنساني أخلاقي</small>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="روابط الموقع">
+      <a href="../index.html#home">الرئيسية</a>
+      <a href="about.html">عن المشروع</a>
+      <a href="ethics.html">الأخلاقيات</a>
+      <a href="archive.html" aria-current="page">السجل</a>
+      <a href="../index.html#add">أضف شهادة</a>
+    </nav>
+
+    <div class="header__actions">
+      <a class="btn btn--ghost" href="../index.html#add">أضف شهادة</a>
+      <label class="burger" for="navToggle" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+
+  <label class="drawer-overlay" for="navToggle" aria-label="إغلاق القائمة"></label>
+
+  <aside class="drawer" aria-label="قائمة الهاتف">
+    <div class="drawer__head">
+      <span class="badge">القائمة</span>
+      <label class="drawer__close" for="navToggle" aria-label="إغلاق">✕</label>
+    </div>
+
+    <a href="../index.html" class="drawer__link">الرئيسية</a>
+    <a href="about.html" class="drawer__link">عن المشروع</a>
+    <a href="ethics.html" class="drawer__link">الأخلاقيات</a>
+    <a href="archive.html" class="drawer__link">السجل</a>
+    <a href="../index.html#add" class="drawer__link">أضف شهادة</a>
+
+    <hr class="hr">
+
+    <a href="../legal/privacy.html" class="drawer__link">الخصوصية</a>
+    <a href="../legal/terms.html" class="drawer__link">الشروط</a>
+    <a href="../legal/disclaimer.html" class="drawer__link">إخلاء المسؤولية</a>
+  </aside>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h2>السجل</h2>
+    <p class="muted">كل ما تراه هنا محفوظ محليًا على هذا الجهاز فقط.</p>
+
+    <!-- أدوات متقدمة -->
+    <div class="card" style="margin-top:12px;">
+      <div class="toolbar">
+
+        <div class="search">
+          <input class="input" id="q" placeholder="بحث (عنوان / مكان / نص)…" autocomplete="off">
+        </div>
+
+        <div class="pills" aria-label="عداد وأزرار">
+          <span class="pill" aria-pressed="true">العدد: <strong id="count">0</strong></span>
+          <button class="pill" type="button" id="exportBtn">تصدير JSON</button>
+          <button class="pill" type="button" id="importBtn">استيراد JSON</button>
+          <button class="pill" type="button" id="clearArchiveBtn">مسح الكل</button>
+          <input type="file" id="importFile" accept="application/json" hidden>
+        </div>
+
+      </div>
+
+      <div class="toolbar" style="margin-top:10px;">
+        <div class="search" style="flex-wrap:wrap;">
+          <input class="input" id="placeFilter" placeholder="فلتر المكان (اختياري)…" autocomplete="off">
+          <input class="input" id="fromDate" type="date" title="من تاريخ">
+          <input class="input" id="toDate" type="date" title="إلى تاريخ">
+        </div>
+
+        <div class="pills" aria-label="ترتيب">
+          <button class="pill" type="button" id="sortNewest" aria-pressed="true">الأحدث</button>
+          <button class="pill" type="button" id="sortOldest" aria-pressed="false">الأقدم</button>
+        </div>
+      </div>
+
+      <div class="toolbar" style="margin-top:10px;">
+        <div class="pills" aria-label="حجم الصفحة">
+          <span class="pill" aria-pressed="true">في الصفحة:</span>
+          <button class="pill" type="button" data-page-size="5">5</button>
+          <button class="pill" type="button" data-page-size="10" aria-pressed="true">10</button>
+          <button class="pill" type="button" data-page-size="20">20</button>
+        </div>
+
+        <div class="pills" aria-label="الصفحات">
+          <button class="pill" type="button" id="prevPage">السابق</button>
+          <span class="pill" aria-pressed="true">صفحة <strong id="pageNow">1</strong> / <strong id="pageTotal">1</strong></span>
+          <button class="pill" type="button" id="nextPage">التالي</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- قائمة الشهادات -->
+    <div id="archiveList" class="grid-2" style="margin-top:12px;"></div>
+
+    <div class="card" style="margin-top:12px;">
+      <h3>ملاحظة الخصوصية</h3>
+      <p class="muted">
+        هذا الإصدار لا يرفع أي بيانات للإنترنت. “استيراد/تصدير” الهدف منه النسخ الاحتياطي فقط.
+      </p>
+      <a class="link" href="../index.html#add">إضافة شهادة جديدة →</a>
+    </div>
+  </div>
+</main>
+
+<!-- Install Banner -->
+<div class="install" id="installBar" hidden>
+  <div class="install__text">
+    <strong>ثبّت “نور القلوب”</strong>
+    <span>افتحه كتطبيق سريع على هاتفك</span>
+  </div>
+  <div class="install__actions">
+    <button class="btn btn--primary btn--small" id="installBtn" type="button">تثبيت</button>
+    <button class="btn btn--ghost btn--small" id="installDismiss" type="button">لاحقًا</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <strong>نور القلوب</strong>
+      <p class="muted">سجل الشهادة الصامتة — وقائع بلا تحريض ولا تشهير</p>
+    </div>
+
+    <div class="footer__links">
+      <a href="../legal/privacy.html">الخصوصية</a>
+      <a href="../legal/terms.html">الشروط</a>
+      <a href="../legal/disclaimer.html">إخلاء المسؤولية</a>
+      <a href="../robots.txt">robots.txt</a>
+      <a href="../sitemap.xml">sitemap.xml</a>
+    </div>
+
+    <div class="footer__bottom">© <span id="year"></span> نور القلوب</div>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+<script src="../js/accessibility.js" defer></script>
+<script src="../js/form.js" defer></script>
+<script src="../js/archive.js" defer></script>
+</body>
+</html>
