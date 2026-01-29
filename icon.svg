@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 512 512"
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="نور القلوب">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c5cff"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="g2" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- الخلفية -->
+  <circle cx="256" cy="256" r="248" fill="#070b14"/>
+
+  <!-- الهالة -->
+  <circle cx="256" cy="256" r="200" fill="url(#g1)" opacity="0.18"/>
+
+  <!-- النور -->
+  <circle cx="256" cy="220" r="78" fill="url(#g2)"/>
+
+  <!-- القلب -->
+  <path d="
+    M256 330
+    C220 300, 170 270, 170 220
+    C170 185, 198 160, 232 160
+    C250 160, 266 170, 276 184
+    C286 170, 302 160, 320 160
+    C354 160, 382 185, 382 220
+    C382 270, 332 300, 296 330
+    Z"
+    fill="url(#g1)" opacity="0.95"/>
+
+  <!-- نقطة الشهادة -->
+  <circle cx="256" cy="215" r="8" fill="#ffffff"/>
+</svg>
